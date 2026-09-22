@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto RA1</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --panel: #111827;
+        --panel-2: #1f2937;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --accent: #38bdf8;
+        --accent-2: #a78bfa;
+        --success: #34d399;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, var(--bg), #111827 55%, #1e293b);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        width: min(1100px, calc(100% - 2rem));
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 3rem 0 1.5rem;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 2rem;
+        align-items: center;
+        padding: 2rem 0 1rem;
+      }
+
+      h1 {
+        margin: 0 0 1rem;
+        font-size: clamp(2.2rem, 4vw, 4rem);
+        line-height: 1.1;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 0.4rem 0.75rem;
+        border-radius: 999px;
+        background: rgba(56, 189, 248, 0.1);
+        color: var(--accent);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        font-size: 0.88rem;
+        font-weight: bold;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        margin: 1rem 0 0;
+        color: var(--muted);
+        font-size: 1.08rem;
+        max-width: 60ch;
+      }
+
+      .panel {
+        background: rgba(17, 24, 39, 0.9);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.3);
+      }
+
+      .stats {
+        padding: 1.5rem;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .stat {
+        background: var(--panel-2);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 16px;
+        padding: 1rem;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.8rem;
+        color: var(--accent);
+      }
+
+      main {
+        padding: 2rem 0 4rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.25rem;
+      }
+
+      .card {
+        padding: 1.5rem;
+      }
+
+      .card h2 {
+        margin-top: 0;
+        margin-bottom: 0.75rem;
+        font-size: 1.2rem;
+      }
+
+      .card ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        color: var(--muted);
+      }
+
+      .highlight {
+        color: var(--success);
+        font-weight: bold;
+      }
+
+      footer {
+        padding: 1.5rem 0 2rem;
+        border-top: 1px solid rgba(255,255,255,0.08);
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 760px) {
+        .hero, .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="hero">
+          <div>
+            <span class="tag">RA1</span>
+            <h1>Lenguajes de programación para Inteligencia Artificial</h1>
+            <p class="lead">
+              Repositorio docente pensado para presentar y organizar materiales relacionados con
+              lenguajes, herramientas y conceptos básicos del desarrollo de soluciones con IA.
+            </p>
+          </div>
+
+          <div class="panel stats">
+            <div class="stats-grid">
+              <div class="stat">
+                <strong>1</strong>
+                <span>Proyecto</span>
+              </div>
+              <div class="stat">
+                <strong>3</strong>
+                <span>Elementos base</span>
+              </div>
+              <div class="stat">
+                <strong>IA</strong>
+                <span>Enfoque</span>
+              </div>
+              <div class="stat">
+                <strong>+</strong>
+                <span>Aprendizaje</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section class="grid">
+          <article class="panel card">
+            <h2>Objetivo</h2>
+            <ul>
+              <li>Recoger materiales del curso.</li>
+              <li>Presentar una base clara y accesible.</li>
+              <li>Facilitar la consulta por parte del profesorado.</li>
+            </ul>
+          </article>
+
+          <article class="panel card">
+            <h2>Contenido</h2>
+            <ul>
+              <li><span class="highlight">index.html</span> para la vista principal.</li>
+              <li><span class="highlight">README.md</span> con documentación.</li>
+              <li><span class="highlight">data/</span> para archivos del proyecto.</li>
+            </ul>
+          </article>
+
+          <article class="panel card">
+            <h2>Uso</h2>
+            <ul>
+              <li>Consultar esta página como inicio del repositorio.</li>
+              <li>Revisar la documentación en la raíz.</li>
+              <li>Añadir datos o ejemplos en la carpeta <code>data/</code>.</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      Proyecto RA1 · Lenguajes de programación para Inteligencia Artificial
+    </footer>
+  </body>
+</html>
