@@ -1,84 +1,1119 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RA1 · Matriculator | Entregable de Inteligencia Artificial</title>
+<meta name="description" content="Entregable RA1 de Programación de Inteligencia Artificial · Matriculator">
+<style>
+:root{
+  --ink:#203f4c;
+  --ink-2:#315666;
+  --muted:#71838c;
+  --paper:#f7f4ef;
+  --white:#ffffff;
+  --line:#dbe4e6;
+  --green:#20966f;
+  --green-dark:#17745a;
+  --blue:#3f9dc8;
+  --orange:#ea7b3c;
+  --yellow:#efc448;
+  --red:#df5d59;
+  --pink:#ee87a3;
+  --cream:#fffaf4;
+  --shadow:0 14px 35px rgba(32,63,76,.09);
+  --shadow-soft:0 8px 22px rgba(32,63,76,.06);
+  --radius:20px;
+}
 
-    <title>Proyecto RA1</title>
-    <link rel="stylesheet" href="assets/html/style.css">
-      </head>
-  <body>
-    <header>
-      <div class="container">
-        <div class="hero">
-          <div>
-            <span class="tag">RA1</span>
-            <h1>Lenguajes de programación para Inteligencia Artificial</h1>
-            <p class="lead">
-              Repositorio docente pensado para presentar y organizar materiales relacionados con
-              lenguajes, herramientas y conceptos básicos del desarrollo de soluciones con IA.
-            </p>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:
+    radial-gradient(circle at 15% 5%,rgba(63,157,200,.12),transparent 23%),
+    radial-gradient(circle at 92% 9%,rgba(238,135,163,.13),transparent 24%),
+    var(--paper);
+  line-height:1.55;
+}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}
+a{color:inherit}
+img{max-width:100%}
+
+.container{width:min(1180px,calc(100% - 34px));margin:auto}
+.topline{height:7px;background:linear-gradient(90deg,var(--red) 0 16%,var(--pink) 16% 32%,var(--orange) 32% 48%,var(--yellow) 48% 64%,var(--green) 64% 82%,var(--blue) 82% 100%)}
+
+header{
+  position:sticky;top:0;z-index:50;
+  backdrop-filter:blur(15px);
+  background:rgba(247,244,239,.88);
+  border-bottom:1px solid rgba(219,228,230,.85);
+}
+.navbar{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.brandmark{
+  width:44px;height:44px;border-radius:13px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--ink),#355d6d);
+  color:#fff;font-weight:900;letter-spacing:-.04em;
+  box-shadow:0 10px 22px rgba(32,63,76,.18)
+}
+.brandtext small{display:block;color:var(--green);font-weight:800;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.brandtext strong{font-size:15px}
+.navlinks{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.navlinks button{
+  border:0;background:transparent;color:var(--ink-2);
+  padding:9px 10px;border-radius:10px;font-weight:750;font-size:12px
+}
+.navlinks button:hover,.navlinks button.active{background:var(--white);box-shadow:var(--shadow-soft);color:var(--green)}
+.actions{display:flex;gap:8px}
+.btn{
+  border:1px solid var(--line);background:var(--white);color:var(--ink);
+  padding:9px 12px;border-radius:11px;font-weight:800;font-size:12px;
+  transition:.2s;box-shadow:0 4px 12px rgba(32,63,76,.04)
+}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--green);border-color:var(--green);color:#fff}
+.btn.orange{background:var(--orange);border-color:var(--orange);color:#fff}
+.btn.ghost{background:transparent}
+.mobile{display:none}
+
+.hero{
+  padding:52px 0 34px;
+}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:stretch}
+.hero-main{
+  position:relative;overflow:hidden;padding:38px;border-radius:28px;
+  background:
+    radial-gradient(circle at 90% 15%,rgba(63,157,200,.22),transparent 26%),
+    linear-gradient(135deg,var(--ink),#274f61 72%,#345d6c);
+  color:#fff;box-shadow:var(--shadow)
+}
+.hero-main:after{
+  content:"";position:absolute;right:-70px;bottom:-100px;width:270px;height:270px;border-radius:50%;
+  border:48px solid rgba(238,135,163,.18)
+}
+.kicker{color:#b8efd9;font-weight:850;font-size:11px;letter-spacing:.18em;text-transform:uppercase}
+h1{font-size:clamp(34px,5vw,56px);line-height:1.02;letter-spacing:-.04em;margin:8px 0 15px;max-width:850px}
+.hero-main p{max-width:760px;color:#dae8eb;margin:0;font-size:14px}
+.meta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}
+.pill{display:inline-flex;align-items:center;padding:6px 10px;border-radius:99px;font-size:10px;font-weight:850;letter-spacing:.02em}
+.pill.green{background:#dcf4eb;color:#166c54}.pill.blue{background:#e4f2fa;color:#236a8b}
+.pill.orange{background:#fff0e7;color:#ae4a17}.pill.pink{background:#fbe9ef;color:#a44c68}
+.pill.yellow{background:#fff7d9;color:#866509}.pill.dark{background:rgba(255,255,255,.11);color:#eaf4f5}
+
+.cover-card{
+  background:var(--white);border:1px solid var(--line);border-radius:28px;padding:25px;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;justify-content:space-between
+}
+.cover-art{
+  min-height:190px;border-radius:21px;
+  background:
+   linear-gradient(140deg,rgba(32,150,111,.1),rgba(63,157,200,.09)),
+   repeating-linear-gradient(135deg,rgba(32,63,76,.04) 0 1px,transparent 1px 12px);
+  border:1px solid var(--line);padding:18px;position:relative;overflow:hidden
+}
+.cover-art .orb{position:absolute;border-radius:50%;filter:blur(.1px)}
+.orb.one{width:80px;height:80px;background:var(--red);right:18px;top:18px}
+.orb.two{width:62px;height:62px;background:var(--yellow);left:24px;bottom:24px}
+.orb.three{width:48px;height:48px;background:var(--blue);left:92px;top:25px}
+.orb.four{width:72px;height:72px;background:var(--pink);right:80px;bottom:-10px}
+.cover-art .label{position:relative;z-index:2;display:inline-block;background:rgba(255,255,255,.8);border:1px solid var(--line);padding:6px 10px;border-radius:9px;font-size:10px;font-weight:900}
+.cover-info{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.info-box{background:var(--cream);border:1px solid #eee2d5;border-radius:13px;padding:11px}
+.info-box span{display:block;color:var(--muted);font-size:10px}.info-box strong{font-size:13px}
+
+.section{padding:27px 0;scroll-margin-top:92px}
+.section-head{display:flex;justify-content:space-between;gap:16px;align-items:end;margin-bottom:15px}
+.section-head h2{font-size:28px;letter-spacing:-.03em;margin:0}
+.section-head p{color:var(--muted);font-size:12px;margin:4px 0 0}
+.section-number{
+  display:inline-flex;align-items:center;gap:8px;color:var(--green);font-size:11px;font-weight:900;
+  letter-spacing:.13em;text-transform:uppercase
+}
+.section-number i{width:27px;height:27px;border-radius:8px;display:grid;place-items:center;background:#def5ec;font-style:normal}
+
+.grid{display:grid;gap:16px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow-soft)}
+.card h3{margin:0 0 7px;font-size:16px}
+.card p{margin:0;color:var(--muted);font-size:12px}
+.card .lead{font-size:14px;color:var(--ink)}
+.card.accent-green{border-top:4px solid var(--green)}
+.card.accent-blue{border-top:4px solid var(--blue)}
+.card.accent-orange{border-top:4px solid var(--orange)}
+.card.accent-pink{border-top:4px solid var(--pink)}
+.card.accent-yellow{border-top:4px solid var(--yellow)}
+
+.tabbar{display:inline-flex;gap:4px;padding:4px;background:#ecf1f2;border-radius:12px}
+.tabbar button{border:0;background:transparent;padding:8px 11px;border-radius:9px;color:var(--muted);font-weight:800;font-size:11px}
+.tabbar button.active{background:var(--white);color:var(--ink);box-shadow:0 3px 10px rgba(32,63,76,.08)}
+
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:17px}
+.kpi{border:1px solid var(--line);border-radius:14px;padding:12px;background:#fcfdfd}
+.kpi strong{display:block;font-size:21px;letter-spacing:-.04em}
+.kpi span{font-size:10px;color:var(--muted)}
+.progress-track{height:8px;border-radius:99px;background:#edf2f3;overflow:hidden;margin-top:11px}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--blue));transition:.3s}
+
+.feature-list{display:grid;gap:9px;margin-top:14px}
+.feature{display:grid;grid-template-columns:32px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid #edf1f2}
+.feature:last-child{border-bottom:0}
+.icon{
+  width:32px;height:32px;border-radius:10px;display:grid;place-items:center;font-size:16px;background:#f0f5f5
+}
+.feature strong{font-size:12px}.feature span{display:block;color:var(--muted);font-size:11px}
+
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px;border-bottom:1px solid var(--line);font-size:11px;text-align:left;vertical-align:top}
+th{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#7a8c95;background:#fbfcfc}
+tr:last-child td{border-bottom:0}
+.scroll{overflow:auto;border:1px solid var(--line);border-radius:14px}
+.tag{padding:4px 7px;border-radius:99px;font-size:9px;font-weight:900;display:inline-block}
+.tag.green{background:#e7f7f0;color:#18765b}.tag.blue{background:#e8f4fb;color:#2f7799}
+.tag.orange{background:#fff0e8;color:#a94f22}.tag.red{background:#fdeceb;color:#aa4747}
+.tag.purple{background:#efeafc;color:#65539c}.tag.yellow{background:#fff6d4;color:#84680c}
+
+.definition-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.definition{padding:13px;border:1px solid var(--line);border-radius:14px;background:#fcfdfd}
+.definition .head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.definition strong{font-size:12px}.definition p{margin-top:7px;font-size:11px}
+
+.flow{display:flex;align-items:center;gap:8px;overflow:auto;padding:3px 2px 13px}
+.flow-step{min-width:137px;border:1px solid var(--line);border-radius:14px;padding:12px;background:linear-gradient(180deg,#fff,#fbfcfc);position:relative}
+.flow-step:not(:last-child):after{content:"→";position:absolute;right:-15px;top:50%;transform:translateY(-50%);font-weight:900;color:#9baeb6}
+.flow-step small{display:block;color:var(--green);text-transform:uppercase;font-weight:900;font-size:9px;letter-spacing:.08em}
+.flow-step strong{display:block;font-size:12px;margin-top:3px}.flow-step span{display:block;color:var(--muted);font-size:10px;margin-top:4px}
+
+.timeline{display:grid;gap:9px}
+.timeline-row{display:grid;grid-template-columns:29px 1fr;gap:9px}
+.timeline-num{width:29px;height:29px;border-radius:8px;display:grid;place-items:center;background:#eaf5f1;color:var(--green);font-size:11px;font-weight:900}
+.timeline-box{border:1px solid var(--line);border-radius:11px;padding:8px 10px}
+.timeline-box strong{font-size:11px}.timeline-box span{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+
+.code{
+  background:#18333f;color:#e3f1f3;padding:14px;border-radius:13px;overflow:auto;
+  font:11px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  margin-top:12px
+}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#eff3f4;padding:2px 5px;border-radius:6px;font-size:10px}
+
+.chart-wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:15px}
+.chart-card{min-height:330px}
+.chart-box{height:270px;border:1px solid var(--line);border-radius:13px;padding:8px;margin-top:11px;background:#fbfcfc}
+canvas{width:100%;height:100%}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.legend span{display:inline-flex;align-items:center;gap:5px;font-size:9px;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.upload{border:1px dashed #bccbd0;background:#fbfdfd;border-radius:13px;padding:14px}
+.upload input{max-width:100%;margin-top:8px;font-size:11px}
+.small-note{color:var(--muted);font-size:10px;margin-top:8px}
+
+.matrix td,.matrix th{text-align:center;white-space:nowrap}
+.matrix td:first-child,.matrix th:first-child{text-align:left}
+.matrix input{
+  width:52px;padding:6px;border:1px solid var(--line);border-radius:8px;text-align:center;background:#fff
+}
+.matrix tfoot td{font-weight:900;background:#f8fbfb}
+.selected-cell{background:#e8f6f1!important;color:#176c56}
+.decisions{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:13px}
+.decision{border-radius:15px;padding:14px;border:1px solid var(--line)}
+.decision.green{background:#effaf6;border-color:#caebdf}.decision.blue{background:#eef7fc;border-color:#d2e8f3}
+.decision span{display:block;font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:900}
+.decision strong{display:block;font-size:18px;margin-top:3px}
+.decision p{margin-top:7px}
+
+.format{height:100%;display:flex;flex-direction:column}
+.format-icon{
+  width:43px;height:43px;border-radius:12px;display:grid;place-items:center;font-weight:950;font-size:15px;margin-bottom:12px
+}
+.fhtml{background:#ffe9e3;color:#b94e28}.fxml{background:#fff4cf;color:#85680d}.fjson{background:#e8f7f1;color:#18755b}
+.fmd{background:#e9f2fb;color:#2e6f96}.fcsv{background:#f8e8ee;color:#9d4c68}
+
+.checklist{display:grid;gap:8px}
+.check{
+  display:flex;gap:10px;align-items:flex-start;padding:10px 11px;border:1px solid var(--line);border-radius:11px;
+  transition:.2s;background:#fff
+}
+.check.done{background:#effaf6;border-color:#cdeade}
+.check input{margin-top:2px;accent-color:var(--green)}
+.check label{font-size:11px;cursor:pointer}
+.overview-progress{display:flex;justify-content:space-between;margin-bottom:7px;font-size:10px;color:var(--muted)}
+
+.editable{
+  outline:none;border:1px dashed transparent;border-radius:8px;padding:4px
+}
+.editable:hover,.editable:focus{border-color:#b6c8cf;background:#fbfdfd}
+
+.people{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.person{padding:12px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(180deg,#fff,#fbfcfc)}
+.avatar{width:36px;height:36px;border-radius:11px;display:grid;place-items:center;color:#fff;font-weight:900;margin-bottom:9px}
+.a1{background:var(--green)}.a2{background:var(--blue)}.a3{background:var(--orange)}.a4{background:var(--pink)}
+.person strong{font-size:11px}.person span{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+
+.source-list{display:grid;gap:8px}
+.source{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 11px;border:1px solid var(--line);border-radius:11px;background:#fff
+}
+.source strong{font-size:11px}.source small{display:block;color:var(--muted);font-size:9px;margin-top:2px}
+.source a{font-size:10px;color:var(--green);font-weight:850;text-decoration:none}
+.source a:hover{text-decoration:underline}
+
+.ai-evidence{display:grid;gap:9px}
+.ai-item{border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff}
+.ai-item .top{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.ai-item strong{font-size:11px}.ai-item p{margin-top:5px}
+.badge-ai{background:#efe9fb;color:#67519f}
+
+.rubric{display:grid;gap:8px}
+.rubric-row{display:grid;grid-template-columns:1.35fr .55fr 1fr;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);align-items:center}
+.rubric-row:last-child{border-bottom:0}
+.rubric-row div{font-size:10px}
+.rubric-head{font-size:9px!important;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:900}
+.total-box{margin-top:12px;padding:14px;border-radius:14px;background:linear-gradient(135deg,var(--ink),#315d6d);color:#fff;display:flex;justify-content:space-between;align-items:center}
+.total-box small{color:#c6d9de}.total-box strong{font-size:27px}
+
+footer{padding:38px 0 58px;text-align:center;color:var(--muted);font-size:10px}
+
+.toast{
+  position:fixed;right:19px;bottom:18px;z-index:100;
+  padding:10px 13px;border-radius:11px;background:var(--ink);color:#fff;font-size:11px;
+  box-shadow:var(--shadow);opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s
+}
+.toast.show{opacity:1;transform:translateY(0)}
+.backtop{
+  position:fixed;right:18px;bottom:61px;z-index:90;width:38px;height:38px;border-radius:50%;
+  border:1px solid var(--line);background:#fff;color:var(--ink);box-shadow:var(--shadow)
+}
+
+@media(max-width:1050px){
+  .navlinks{display:none}
+  .mobile{display:inline-flex}
+  .hero-grid,.chart-wrap{grid-template-columns:1fr}
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .definition-grid{grid-template-columns:repeat(2,1fr)}
+  .people{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:720px){
+  .container{width:min(100% - 24px,1180px)}
+  .navbar{min-height:66px}.brandtext strong{font-size:13px}
+  .actions .btn:not(.mobile){display:none}
+  .hero{padding-top:26px}
+  .hero-main,.cover-card{padding:22px;border-radius:21px}
+  .grid-2,.grid-3,.grid-4,.decisions{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .definition-grid,.people{grid-template-columns:1fr 1fr}
+  .section-head{align-items:start;flex-direction:column}
+}
+@media print{
+  header,.actions,.backtop,.toast,.upload{display:none!important}
+  body{background:#fff}
+  .hero-main,.cover-card,.card{box-shadow:none}
+  .section{break-inside:avoid}
+  .container{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="topline"></div>
+
+<header>
+  <div class="container navbar">
+    <div class="brand">
+      <div class="brandmark">AI</div>
+      <div class="brandtext">
+        <small>RA1 · Entregable</small>
+        <strong>Lenguajes de programación para IA</strong>
+      </div>
+    </div>
+    <div class="navlinks" id="navlinks">
+      <button class="active" data-target="inicio">Inicio</button>
+      <button data-target="aplicacion">Aplicación</button>
+      <button data-target="lenguajes">Lenguajes</button>
+      <button data-target="arquitectura">Arquitectura</button>
+      <button data-target="datos">Datos</button>
+      <button data-target="extras">Extras</button>
+      <button data-target="entrega">Entrega</button>
+    </div>
+    <div class="actions">
+      <button class="btn mobile" id="mobileMenu">☰</button>
+      <button class="btn" id="reset">↺</button>
+      <button class="btn primary" id="print">Imprimir</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+
+    <section class="hero" id="inicio">
+      <div class="hero-grid">
+        <div class="hero-main">
+          <div class="kicker">Módulo · Programación de Inteligencia Artificial</div>
+          <h1>Propuesta técnica de una aplicación de IA</h1>
+          <p>
+            Estudio de <strong>lenguajes, arquitectura, marcado y formatos de datos</strong>
+            para una aplicación hipotética. Este entregable está preparado como una versión
+            completa de demostración y todos los campos marcados son editables.
+          </p>
+          <div class="meta-row">
+            <span class="pill dark">RA1</span>
+            <span class="pill dark">Matriculator</span>
+            <span class="pill dark">Trabajo grupal</span>
+            <span class="pill dark">2026–2027</span>
           </div>
+          <div class="kpi-grid">
+            <div class="kpi"><strong>10/10</strong><span>Estructura de la entrega</span></div>
+            <div class="kpi"><strong id="heroPct">0%</strong><span>Checklist completado</span></div>
+            <div class="kpi"><strong>6</strong><span>Lenguajes comparados</span></div>
+            <div class="kpi"><strong>5</strong><span>Formatos tratados</span></div>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="heroProgress"></div></div>
+        </div>
 
-          <div class="panel stats">
-            <div class="stats-grid">
-              <div class="stat">
-                <strong>1</strong>
-                <span>Proyecto</span>
-              </div>
-              <div class="stat">
-                <strong>3</strong>
-                <span>Elementos base</span>
-              </div>
-              <div class="stat">
-                <strong>IA</strong>
-                <span>Enfoque</span>
-              </div>
-              <div class="stat">
-                <strong>+</strong>
-                <span>Aprendizaje</span>
-              </div>
+        <aside class="cover-card">
+          <div class="cover-art">
+            <span class="label">PORTADA DEL ENTREGABLE</span>
+            <div class="orb one"></div>
+            <div class="orb two"></div>
+            <div class="orb three"></div>
+            <div class="orb four"></div>
+            <div style="position:absolute;left:18px;bottom:18px;right:18px;z-index:3">
+              <div style="font-size:11px;font-weight:900;color:var(--ink)">AulaSoporte</div>
+              <div style="font-size:10px;color:var(--muted);margin-top:2px">Detección de matrículas en imágenes de prueba</div>
+            </div>
+          </div>
+          <div class="cover-info">
+            <div class="info-box"><span>Grupo</span><strong contenteditable="true" class="editable">Equipo Neuron</strong></div>
+            <div class="info-box"><span>Curso</span><strong contenteditable="true" class="editable">2026–2027</strong></div>
+            <div class="info-box"><span>Fecha</span><strong contenteditable="true" class="editable">23/09/2026</strong></div>
+            <div class="info-box"><span>Responsable</span><strong contenteditable="true" class="editable">Integrante 1</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="aplicacion">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>01</i> Aplicación hipotética</div>
+          <h2>Matriculator</h2>
+          <p>Aplicación hipotética para detectar matrículas en imágenes de prueba de un aparcamiento.</p>
+        </div>
+        <div class="tabbar" id="appTabs">
+          <button class="active" data-app="matri">Matriculator</button>
+          <button data-app="aula">AulaSoporte · alternativa</button>
+        </div>
+      </div>
+
+      <div id="appMatri" class="grid grid-2">
+        <div class="card accent-orange">
+          <h3>Problema y objetivo</h3>
+          <p class="lead">
+            Una empresa de aparcamientos quiere estudiar una aplicación capaz de
+            <strong>detectar matrículas en imágenes de prueba</strong>. La propuesta
+            permite analizar qué lenguajes y tecnologías serían adecuados para una solución
+            de visión artificial sin necesidad de implementar ni entrenar el modelo en este trabajo.
+          </p>
+          <div class="feature-list">
+            <div class="feature"><div class="icon">📷</div><div><strong>Entrada</strong><span>Imágenes de prueba de vehículos, preferiblemente sintéticas, anónimas o abiertas.</span></div></div>
+            <div class="feature"><div class="icon">🧠</div><div><strong>Procesamiento</strong><span>Validación de imagen → preprocesado → detección de la matrícula → posible OCR → validación.</span></div></div>
+            <div class="feature"><div class="icon">🔎</div><div><strong>Salida</strong><span>Región detectada, texto de matrícula cuando proceda y nivel de confianza.</span></div></div>
+            <div class="feature"><div class="icon">👤</div><div><strong>Revisión humana</strong><span>Un resultado de baja confianza debe quedar sujeto a comprobación antes de utilizarse.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Tabla resumen del caso</h3>
+          <div class="scroll" style="margin-top:10px">
+            <table>
+              <thead><tr><th>Elemento</th><th>Propuesta</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Entradas</strong></td><td>Imágenes de prueba de vehículos.</td></tr>
+                <tr><td><strong>Procesamiento</strong></td><td>Validación → redimensionado/preprocesado → detección → OCR opcional → control de confianza.</td></tr>
+                <tr><td><strong>Salidas</strong></td><td>Localización de matrícula, texto reconocido y confianza del resultado.</td></tr>
+                <tr><td><strong>Datos necesarios</strong></td><td>Imágenes sintéticas, anónimas o abiertas y, si el enfoque lo requiere, anotaciones de las matrículas.</td></tr>
+                <tr><td><strong>Límite</strong></td><td>La aplicación propone un resultado; los casos dudosos deben pasar por <strong>revisión humana</strong>.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="appAula" class="grid grid-2" style="display:none">
+        <div class="card">
+          <h3>AulaSoporte · opción alternativa</h3>
+          <p class="lead">
+            Un centro recibe incidencias de acceso, equipos, plataforma o red. Una web recoge
+            la consulta y, en una fase futura, un modelo de IA propone categoría y prioridad.
+          </p>
+          <div class="feature-list">
+            <div class="feature"><div class="icon">📝</div><div><strong>Entrada</strong><span>Texto de la incidencia y contexto mínimo.</span></div></div>
+            <div class="feature"><div class="icon">⚙️</div><div><strong>Procesamiento</strong><span>Validación, limpieza, transformación y predicción.</span></div></div>
+            <div class="feature"><div class="icon">🎯</div><div><strong>Salida</strong><span>Categoría y prioridad propuestas.</span></div></div>
+            <div class="feature"><div class="icon">👤</div><div><strong>Decisión humana</strong><span>Revisión de resultados relevantes.</span></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Tabla resumen · alternativa</h3>
+          <div class="scroll" style="margin-top:10px">
+            <table><thead><tr><th>Elemento</th><th>Propuesta</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Entradas</strong></td><td>Consulta escrita.</td></tr>
+              <tr><td><strong>Procesamiento</strong></td><td>Validación → limpieza → inferencia.</td></tr>
+              <tr><td><strong>Salidas</strong></td><td>Categoría, prioridad y recomendación.</td></tr>
+              <tr><td><strong>Datos necesarios</strong></td><td>Incidencias sintéticas/anónimas y etiquetas si son necesarias.</td></tr>
+            </tbody></table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Especificación funcional rápida</h3>
+        <div class="definition-grid" style="margin-top:10px">
+          <div class="definition"><div class="head"><strong>Usuario</strong><span class="tag orange">IMAGEN</span></div><p>Introduce una imagen de prueba desde la interfaz.</p></div>
+          <div class="definition"><div class="head"><strong>API</strong><span class="tag blue">INTEGRACIÓN</span></div><p>Recibe la imagen o referencia y gestiona la comunicación con el componente de IA.</p></div>
+          <div class="definition"><div class="head"><strong>Modelo IA</strong><span class="tag green">VISIÓN</span></div><p>Localiza la matrícula y puede extraer el texto mediante OCR.</p></div>
+          <div class="definition"><div class="head"><strong>Revisión</strong><span class="tag pink">HUMANA</span></div><p>Comprueba resultados ambiguos, especialmente cuando la confianza es baja.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lenguajes">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>02</i> Comparación de lenguajes</div>
+          <h2>Del caso a una decisión técnica</h2>
+          <p>Se comparan los seis lenguajes indicados en el enunciado y se separa aplicación general de IA.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card accent-green"><h3>Python</h3><p>Muy buen ecosistema para datos, ML/IA, prototipado y automatización. En este ejemplo es el lenguaje principal de IA.</p></div>
+        <div class="card accent-blue"><h3>JavaScript / Node.js</h3><p>Muy buena integración con interfaz, APIs y servicios web; candidato fuerte para frontend/backend.</p></div>
+        <div class="card accent-yellow"><h3>R</h3><p>Especialmente orientado a análisis estadístico, visualización y exploración de datos.</p></div>
+        <div class="card accent-orange"><h3>C++</h3><p>Muy alto rendimiento y control, con mayor complejidad de desarrollo y mantenimiento.</p></div>
+        <div class="card accent-pink"><h3>PHP</h3><p>Muy útil en backend web, pero menos habitual como núcleo del componente moderno de IA.</p></div>
+        <div class="card" style="border-top:4px solid var(--ink)"><h3>Java</h3><p>Buena integración empresarial, robustez y rendimiento, con ecosistema de IA disponible.</p></div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Google Trends · ejemplo editable</h3>
+        <p>Los valores que aparecen aquí son <strong>ilustrativos</strong>. Para la entrega final, sustituidlos por el CSV real exportado desde Google Trends para búsqueda web y YouTube, en todo el mundo.</p>
+        <div class="chart-wrap" style="margin-top:13px">
+          <div class="chart-card">
+            <div class="chart-box"><canvas id="trendChart"></canvas></div>
+            <div class="legend">
+              <span><i class="dot" style="background:var(--green)"></i>Web</span>
+              <span><i class="dot" style="background:var(--blue)"></i>YouTube</span>
+            </div>
+            <div class="small-note">Índice de interés relativo · demo de presentación.</div>
+          </div>
+          <div class="upload">
+            <strong style="font-size:12px">Cargar vuestro trends.csv</strong>
+            <p style="margin-top:5px">Cabecera recomendada: <code>lenguaje,web,youtube</code></p>
+            <input type="file" id="csvFile" accept=".csv,text/csv">
+            <pre id="csvData" class="code" style="max-height:185px;margin-top:10px">lenguaje,web,youtube
+Python,100,92
+JavaScript,74,58
+R,22,14
+C++,36,27
+PHP,31,20
+Java,44,32</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Tabla comparativa</h3>
+        <div class="scroll" style="margin-top:10px">
+          <table>
+            <thead>
+              <tr><th>Lenguaje</th><th>Aprendizaje</th><th>Legibilidad</th><th>Mantenimiento</th><th>Web / API / BD</th><th>Datos</th><th>Estadística</th><th>IA / ML</th><th>Rendimiento</th><th>Interfaz web</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Python</strong></td><td>Muy alta</td><td>Muy alta</td><td>Muy alta</td><td>Alta</td><td>Muy alta</td><td>Muy alta</td><td><span class="tag green">Muy alta</span></td><td>Alta</td><td>Media/Alta</td></tr>
+              <tr><td><strong>JavaScript / Node.js</strong></td><td>Alta</td><td>Alta</td><td>Alta</td><td><span class="tag blue">Muy alta</span></td><td>Alta</td><td>Media</td><td>Alta</td><td>Alta</td><td><span class="tag blue">Muy alta</span></td></tr>
+              <tr><td><strong>R</strong></td><td>Media</td><td>Alta</td><td>Alta</td><td>Media</td><td>Alta</td><td><span class="tag yellow">Muy alta</span></td><td>Alta</td><td>Media</td><td>Baja</td></tr>
+              <tr><td><strong>C++</strong></td><td>Baja</td><td>Media</td><td>Alta</td><td>Alta</td><td>Alta</td><td>Media</td><td>Alta</td><td><span class="tag orange">Muy alta</span></td><td>Media</td></tr>
+              <tr><td><strong>PHP</strong></td><td>Muy alta</td><td>Alta</td><td>Alta</td><td><span class="tag orange">Muy alta</span></td><td>Media</td><td>Baja</td><td>Media</td><td>Media</td><td><span class="tag orange">Muy alta</span></td></tr>
+              <tr><td><strong>Java</strong></td><td>Alta</td><td>Alta</td><td><span class="tag blue">Muy alta</span></td><td><span class="tag blue">Muy alta</span></td><td>Alta</td><td>Media</td><td>Alta</td><td><span class="tag blue">Muy alta</span></td><td>Alta</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Matriz de decisión editable</h3>
+        <p>Las notas son de ejemplo. Podéis cambiarlas de 1 a 10 y el total se recalculará automáticamente.</p>
+        <div class="scroll" style="margin-top:10px">
+          <table class="matrix" id="matrix"></table>
+        </div>
+        <div class="decisions">
+          <div class="decision green">
+            <span>Lenguaje principal de la aplicación</span>
+            <strong contenteditable="true" class="editable">JavaScript / Node.js</strong>
+            <p contenteditable="true" class="editable">Se propone para la capa web y de integración por su conexión natural con interfaz, APIs, gestión de ficheros y comunicación con el servicio de IA.</p>
+          </div>
+          <div class="decision blue">
+            <span>Lenguaje principal para IA</span>
+            <strong contenteditable="true" class="editable">Python</strong>
+            <p contenteditable="true" class="editable">Se propone para el componente de IA por su ecosistema para visión artificial, tratamiento de imágenes, aprendizaje automático y disponibilidad de bibliotecas y modelos.</p>
+          </div>
+        </div>
+        <div class="card" style="margin-top:12px;background:#fffaf6">
+          <h3>Descarte razonado</h3>
+          <p contenteditable="true" class="editable">
+            R se reserva principalmente para análisis estadístico y exploración; PHP destaca especialmente en backend web; Java aporta robustez empresarial; y C++ ofrece alto rendimiento, aunque con mayor complejidad de desarrollo. Para este caso de visión artificial, el ejemplo final separa Node.js para la aplicación web y Python para el componente de IA.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="arquitectura">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>03</i> Arquitectura</div>
+          <h2>Cómo funcionaría Matriculator</h2>
+          <p>Flujo general, preparación de datos y proceso de inferencia para detección de matrículas.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Flujo general · 8 etapas</h3>
+        <div class="flow" style="margin-top:11px">
+          <div class="flow-step"><small>01</small><strong>Inicio</strong><span>Se abre la aplicación.</span></div>
+          <div class="flow-step"><small>02</small><strong>Imagen</strong><span>Se aporta una imagen.</span></div>
+          <div class="flow-step"><small>03</small><strong>Validación</strong><span>Formato y calidad.</span></div>
+          <div class="flow-step"><small>04</small><strong>Preprocesado</strong><span>Escala, recorte y normalización.</span></div>
+          <div class="flow-step"><small>05</small><strong>Detección</strong><span>Localiza la matrícula.</span></div>
+          <div class="flow-step"><small>06</small><strong>OCR</strong><span>Extrae caracteres.</span></div>
+          <div class="flow-step"><small>07</small><strong>Revisión</strong><span>Control de confianza.</span></div>
+          <div class="flow-step"><small>08</small><strong>Salida</strong><span>Resultado mostrado.</span></div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:15px">
+        <div class="card accent-orange">
+          <h3>Antes de entrenar / integrar el modelo</h3>
+          <div class="timeline" style="margin-top:11px">
+            <div class="timeline-row"><div class="timeline-num">1</div><div class="timeline-box"><strong>Recopilar imágenes</strong><span>Crear o localizar imágenes sintéticas, anónimas o abiertas.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">2</div><div class="timeline-box"><strong>Preparar imágenes</strong><span>Redimensionar, normalizar y comprobar calidad.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">3</div><div class="timeline-box"><strong>Marcar matrículas</strong><span>Crear bounding boxes/anotaciones si el método las necesita.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">4</div><div class="timeline-box"><strong>Separar conjuntos</strong><span>Entrenamiento, validación y prueba.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">5</div><div class="timeline-box"><strong>Seleccionar modelo</strong><span>Evaluar un detector y, si procede, un componente OCR.</span></div></div>
+          </div>
+          <div style="margin-top:12px">
+            <span class="tag orange">arrays</span> <span class="tag orange">funciones</span> <span class="tag orange">condiciones</span> <span class="tag orange">bucles</span> <span class="tag purple">datasets</span> <span class="tag purple">visión artificial</span>
+          </div>
+        </div>
+
+        <div class="card accent-blue">
+          <h3>Después de entrenar / integrar</h3>
+          <div class="timeline" style="margin-top:11px">
+            <div class="timeline-row"><div class="timeline-num">1</div><div class="timeline-box"><strong>Recibir imagen</strong><span>La interfaz envía el fichero al backend.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">2</div><div class="timeline-box"><strong>Validar</strong><span>Se comprueba extensión, tamaño y legibilidad.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">3</div><div class="timeline-box"><strong>Preprocesar</strong><span>Se transforma al formato esperado por el modelo.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">4</div><div class="timeline-box"><strong>Detectar</strong><span>El modelo identifica la región de la matrícula.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">5</div><div class="timeline-box"><strong>OCR</strong><span>Se intenta reconocer el texto de la matrícula.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">6</div><div class="timeline-box"><strong>Revisión humana</strong><span>Se revisan detecciones con baja confianza o resultado ambiguo.</span></div></div>
+          </div>
+          <div style="margin-top:12px">
+            <span class="tag blue">API</span> <span class="tag blue">JSON</span> <span class="tag blue">manejo de errores</span> <span class="tag blue">logs</span> <span class="tag blue">backend</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Pseudocódigo · ejemplo de entrega</h3>
+        <p>Ejemplo preparado para <code>pseudocodigo.ipynb</code>; completadlo o adaptadlo a la arquitectura final del equipo.</p>
+        <pre class="code" contenteditable="true">INICIO
+  recibir imagen
+  SI imagen no existe ENTONCES
+      mostrar "Error: falta la imagen"
+      TERMINAR
+  FIN SI
+
+  SI formato(imagen) no es válido ENTONCES
+      mostrar "Error: formato no compatible"
+      TERMINAR
+  FIN SI
+
+  imagen_preparada ← preprocesar(imagen)
+
+  modelo_detector ← cargar_modelo("detector_matriculas")
+  detecciones ← modelo_detector.predecir(imagen_preparada)
+
+  SI detecciones está vacío ENTONCES
+      devolver "No se ha detectado ninguna matrícula"
+      TERMINAR
+  FIN SI
+
+  mejor ← seleccionar_deteccion(detecciones)
+  recorte ← recortar(imagen_preparada, mejor.caja)
+
+  modelo_ocr ← cargar_modelo("ocr")
+  texto ← modelo_ocr.reconocer(recorte)
+
+  confianza ← combinar_confianzas(mejor, texto)
+
+  SI confianza &lt; 0.70 ENTONCES
+      estado ← "REVISAR"
+      enviar_revision_humana(recorte, texto)
+  SINO
+      estado ← "PROPUESTA"
+  FIN SI
+
+  devolver_json(
+      texto,
+      mejor.caja,
+      confianza,
+      estado
+  )
+FIN</pre>
+      </div>
+    </section>
+
+    <section class="section" id="datos">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>04</i> Marcado y formatos</div>
+          <h2>Cómo se representan y comparten los datos</h2>
+          <p>Caracterización de HTML y XML y uso de JSON, Markdown y CSV en el proyecto.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-5" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+        <div class="card format"><div class="format-icon fhtml">HTML</div><h3>HTML</h3><p>Estructura la interfaz: formularios, botones, tablas, títulos y contenido de la web.</p><div class="code" style="margin-top:auto">&lt;form&gt;
+  &lt;input name="consulta"&gt;
+&lt;/form&gt;</div></div>
+        <div class="card format"><div class="format-icon fxml">XML</div><h3>XML</h3><p>Representa información jerárquica mediante etiquetas. Puede aparecer en intercambios estructurados.</p><div class="code" style="margin-top:auto">&lt;incidencia&gt;
+  &lt;prioridad&gt;alta&lt;/prioridad&gt;
+&lt;/incidencia&gt;</div></div>
+        <div class="card format"><div class="format-icon fjson">JSON</div><h3>JSON</h3><p>Formato ligero para enviar datos entre la interfaz, API y servicio de IA.</p><div class="code" style="margin-top:auto">{
+  "consulta": "No puedo entrar",
+  "prioridad": "alta"
+}</div></div>
+        <div class="card format"><div class="format-icon fmd">MD</div><h3>Markdown</h3><p>Se utiliza en <code>README.md</code> para documentación, organización, fuentes y evidencias.</p><div class="code" style="margin-top:auto"># RA1
+## Fuentes
+- Python
+- Node.js</div></div>
+        <div class="card format"><div class="format-icon fcsv">CSV</div><h3>CSV</h3><p>Formato tabular usado para almacenar la exportación de Google Trends y datos sencillos.</p><div class="code" style="margin-top:auto">lenguaje,web,youtube
+Python,100,92</div></div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:15px">
+        <div class="card">
+          <h3>Python · librerías de lectura</h3>
+          <div class="scroll" style="margin-top:9px">
+            <table>
+              <thead><tr><th>Formato</th><th>Ejemplo de librería / módulo</th><th>Uso</th></tr></thead>
+              <tbody>
+                <tr><td>HTML</td><td><code>BeautifulSoup</code></td><td>Parsear HTML.</td></tr>
+                <tr><td>CSV</td><td><code>csv</code> / <code>pandas</code></td><td>Leer tablas y exportaciones.</td></tr>
+                <tr><td>JSON</td><td><code>json</code> / <code>pandas</code></td><td>Leer e intercambiar estructuras.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Equivalentes en R</h3>
+          <div class="scroll" style="margin-top:9px">
+            <table>
+              <thead><tr><th>Necesidad</th><th>Opción</th><th>Ejemplo</th></tr></thead>
+              <tbody>
+                <tr><td>CSV</td><td><code>readr</code></td><td><code>read_csv()</code></td></tr>
+                <tr><td>JSON</td><td><code>jsonlite</code></td><td><code>fromJSON()</code></td></tr>
+                <tr><td>HTML</td><td><code>rvest</code></td><td><code>read_html()</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:15px">
+        <div class="card accent-green">
+          <h3>HTML sintético para parsear</h3>
+          <pre class="code">&lt;section id="incidencia"&gt;
+  &lt;h2&gt;Incidencia #1042&lt;/h2&gt;
+  &lt;p class="categoria"&gt;Acceso&lt;/p&gt;
+  &lt;p class="prioridad"&gt;Alta&lt;/p&gt;
+&lt;/section&gt;</pre>
+        </div>
+        <div class="card accent-blue">
+          <h3>JSON sintético de entrada</h3>
+          <pre class="code">{
+  "id": 1042,
+  "imagen": "vehiculo_1042.jpg",
+  "tipo": "jpg",
+  "origen": "sintetico",
+  "matricula": null
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="extras">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>05</i> Preguntas adicionales</div>
+          <h2>Conclusiones del equipo</h2>
+          <p>Respuestas preparadas para trasladar al README.md.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card accent-pink">
+          <h3>¿IA débil o IA fuerte?</h3>
+          <p class="lead" contenteditable="true">
+            La propuesta se aproxima a una <strong>IA débil o especializada</strong>, porque el sistema está diseñado
+            para una tarea concreta: detectar matrículas en imágenes de prueba y, opcionalmente, reconocer su texto.
+            No pretende disponer de capacidades generales equivalentes a una inteligencia humana en múltiples dominios.
+          </p>
+        </div>
+        <div class="card accent-yellow">
+          <h3>¿Modelo preentrenado o desde cero?</h3>
+          <p class="lead" contenteditable="true">
+            El planteamiento de ejemplo parte de un <strong>modelo preentrenado o una solución existente</strong>
+            y contempla adaptación con datos del caso. Esto reduce tiempo y coste frente a entrenar un modelo
+            completamente desde cero, especialmente en un proyecto académico sin implementación real.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="entrega">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>06</i> Organización y entrega</div>
+          <h2>Checklist final</h2>
+          <p>La página refleja los bloques exigidos para la entrega y permite marcar el progreso.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="overview-progress"><span id="checkLabel">0 de 16 tareas</span><strong id="checkPct">0%</strong></div>
+          <div class="progress-track"><div class="progress-fill" id="checkBar"></div></div>
+          <div class="checklist" id="checklist" style="margin-top:13px"></div>
+        </div>
+
+        <div class="card">
+          <h3>Reparto del grupo</h3>
+          <div class="people" style="margin-top:12px">
+            <div class="person"><div class="avatar a1">1</div><strong contenteditable="true" class="editable">Integrante 1</strong><span contenteditable="true" class="editable">Aplicación + README</span></div>
+            <div class="person"><div class="avatar a2">2</div><strong contenteditable="true" class="editable">Integrante 2</strong><span contenteditable="true" class="editable">Lenguajes + Trends</span></div>
+            <div class="person"><div class="avatar a3">3</div><strong contenteditable="true" class="editable">Integrante 3</strong><span contenteditable="true" class="editable">Diagramas + pseudocódigo</span></div>
+            <div class="person"><div class="avatar a4">4</div><strong contenteditable="true" class="editable">Integrante 4</strong><span contenteditable="true" class="editable">Datos + evidencias IA</span></div>
+          </div>
+          <div class="card" style="margin-top:12px;background:#fbfcfc">
+            <h3>Temporalización</h3>
+            <div class="timeline" style="margin-top:10px">
+              <div class="timeline-row"><div class="timeline-num">1</div><div class="timeline-box"><strong contenteditable="true" class="editable">23/09 · Definición de aplicación</strong><span>Problema, entradas, salidas y datos.</span></div></div>
+              <div class="timeline-row"><div class="timeline-num">2</div><div class="timeline-box"><strong contenteditable="true" class="editable">24/09 · Lenguajes + Trends</strong><span>Comparativa, CSV y matriz.</span></div></div>
+              <div class="timeline-row"><div class="timeline-num">3</div><div class="timeline-box"><strong contenteditable="true" class="editable">25/09 · Arquitectura</strong><span>Flujo y pseudocódigo.</span></div></div>
+              <div class="timeline-row"><div class="timeline-num">4</div><div class="timeline-box"><strong contenteditable="true" class="editable">26/09 · Revisión final</strong><span>README, fuentes, evidencias y publicación.</span></div></div>
             </div>
           </div>
         </div>
       </div>
-    </header>
 
-    <main>
-      <div class="container">
-        <section class="grid">
-          <article class="panel card">
-            <h2>Objetivo</h2>
-            <ul>
-              <li>Recoger materiales del curso.</li>
-              <li>Presentar una base clara y accesible.</li>
-              <li>Facilitar la consulta por parte del profesorado.</li>
-            </ul>
-          </article>
+      <div class="grid grid-2" style="margin-top:15px">
+        <div class="card">
+          <h3>Fuentes · ejemplos de documentación oficial</h3>
+          <div class="source-list" style="margin-top:10px">
+            <div class="source"><div><strong>Python Documentation</strong><small>Lenguaje y biblioteca estándar</small></div><a href="https://docs.python.org/3/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>Node.js Documentation</strong><small>Runtime y desarrollo de aplicaciones</small></div><a href="https://nodejs.org/docs/latest/api/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>R Project</strong><small>Lenguaje y entorno estadístico</small></div><a href="https://www.r-project.org/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>isocpp.org</strong><small>Recursos sobre C++</small></div><a href="https://isocpp.org/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>PHP Manual</strong><small>Documentación oficial de PHP</small></div><a href="https://www.php.net/docs.php" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>Java Documentation</strong><small>Documentación oficial de Java</small></div><a href="https://docs.oracle.com/en/java/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>Google Trends</strong><small>Fuente para la exportación real del CSV</small></div><a href="https://trends.google.com/" target="_blank">Abrir ↗</a></div>
+          </div>
+          <p class="small-note">Añadid en el README la fecha de consulta y el título exacto de cada fuente. Sustituid/añadid las fuentes que finalmente utilicéis.</p>
+        </div>
 
-          <article class="panel card">
-            <h2>Contenido</h2>
-            <ul>
-              <li><span class="highlight">index.html</span> para la vista principal.</li>
-              <li><span class="highlight">README.md</span> con documentación.</li>
-              <li><span class="highlight">data/</span> para archivos del proyecto.</li>
-            </ul>
-          </article>
-
-          <article class="panel card">
-            <h2>Uso</h2>
-            <ul>
-              <li>Consultar esta página como inicio del repositorio.</li>
-              <li>Revisar la documentación en la raíz.</li>
-              <li>Añadir datos o ejemplos en la carpeta <code>data/</code>.</li>
-            </ul>
-          </article>
-        </section>
+        <div class="card">
+          <h3>Evidencias del uso de IA generativa</h3>
+          <div class="ai-evidence" style="margin-top:10px">
+            <div class="ai-item"><div class="top"><strong>Prompt 01 · definición</strong><span class="tag badge-ai">IA</span></div><p>“Propón una estructura para una aplicación hipotética de IA que permita justificar lenguajes y arquitectura sin implementarla.”</p></div>
+            <div class="ai-item"><div class="top"><strong>Repregunta · revisión</strong><span class="tag badge-ai">CAMBIO</span></div><p>“Reduce la propuesta a una arquitectura de 8 etapas y señala dónde debe intervenir una persona.”</p></div>
+            <div class="ai-item"><div class="top"><strong>Prompt 02 · comparación</strong><span class="tag badge-ai">IA</span></div><p>“Compara Python, JavaScript/Node.js, R, C++, PHP y Java según los criterios del trabajo.”</p></div>
+            <div class="ai-item"><div class="top"><strong>Decisión humana</strong><span class="tag badge-ai">EQUIPO</span></div><p contenteditable="true" class="editable">El grupo revisó las propuestas de IA, corrigió simplificaciones y tomó las decisiones finales sobre la arquitectura y los lenguajes.</p></div>
+            <div class="ai-item"><div class="top"><strong>Reflexión final</strong><span class="tag badge-ai">README</span></div><p contenteditable="true" class="editable">La IA ayudó a generar alternativas, ordenar ideas y detectar aspectos olvidados. El equipo verificó las decisiones y adaptó la respuesta a los requisitos reales del enunciado.</p></div>
+          </div>
+        </div>
       </div>
-    </main>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Rúbrica resumida</h3>
+        <div class="rubric" style="margin-top:8px">
+          <div class="rubric-row"><div class="rubric-head">Criterio</div><div class="rubric-head">Máximo</div><div class="rubric-head">Evidencia</div></div>
+          <div class="rubric-row"><div>Organización del grupo y temporalización</div><div><strong>1,5</strong></div><div>Reparto, responsables, tiempos y reflexión.</div></div>
+          <div class="rubric-row"><div>Desarrollo del contenido y evidencias RA1</div><div><strong>4,5</strong></div><div>Aplicación, Trends, matriz, estructura, pseudocódigo y formatos.</div></div>
+          <div class="rubric-row"><div>Fuentes fiables</div><div><strong>1,5</strong></div><div>Fuentes oficiales, autoría, URL y fecha.</div></div>
+          <div class="rubric-row"><div>Evidencias del uso de IA generativa</div><div><strong>2,5</strong></div><div>Prompts, cambios, justificación y reflexión.</div></div>
+        </div>
+        <div class="total-box"><div><small>Puntuación máxima del trabajo</small></div><strong>10 puntos</strong></div>
+      </div>
+    </section>
 
     <footer>
-      Proyecto RA1 · Lenguajes de programación para Inteligencia Artificial
+      <strong contenteditable="true" class="editable">Trabajo grupal RA1 · Matriculator · Programación de Inteligencia Artificial</strong>
+      <div style="margin-top:5px">Plantilla de entrega preparada para personalizar. Revisad datos, fuentes y CSV real antes de publicar.</div>
     </footer>
-  </body>
+  </div>
+</main>
+
+<button class="backtop" id="backtop">↑</button>
+<div class="toast" id="toast">Guardado</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+
+const checks = [
+  "Matriculator definido con problema, entradas, imágenes, procesamiento, salidas y límite humano",
+  "Comparación de Python, JavaScript/Node.js, R, C++, PHP y Java",
+  "Google Trends: búsqueda web + YouTube y CSV real preparado",
+  "Gráfico de Trends generado dentro del HTML",
+  "Matriz de decisión completada y revisada",
+  "Lenguaje principal de aplicación justificado",
+  "Lenguaje principal de IA justificado",
+  "Descarte razonado de alternativas",
+  "Diagrama de flujo general de 6–10 etapas",
+  "Diagrama antes de integrar/entrenar",
+  "Diagrama después de entrenar/integrar",
+  "Pseudocódigo de 20–50 líneas en notebook",
+  "HTML, XML, JSON, Markdown y CSV explicados",
+  "Preguntas adicionales incorporadas al README",
+  "Fuentes con título, entidad, URL y fecha de consulta",
+  "Evidencias de IA: prompts, cambios, uso y reflexión"
+];
+
+function showToast(text){
+  const t=$("#toast");
+  t.textContent=text;
+  t.classList.add("show");
+  clearTimeout(window._toast);
+  window._toast=setTimeout(()=>t.classList.remove("show"),1800);
+}
+
+function updateProgress(){
+  const done=checks.reduce((n,_,i)=>n+(localStorage.getItem("ra1v2-check-"+i)==="1"?1:0),0);
+  const pct=Math.round(done/checks.length*100);
+  $("#checkLabel").textContent=`${done} de ${checks.length} tareas`;
+  $("#checkPct").textContent=pct+"%";
+  $("#checkBar").style.width=pct+"%";
+  $("#heroPct").textContent=pct+"%";
+  $("#heroProgress").style.width=pct+"%";
+}
+
+function renderChecks(){
+  $("#checklist").innerHTML=checks.map((text,i)=>{
+    const done=localStorage.getItem("ra1v2-check-"+i)==="1";
+    return `<div class="check ${done?"done":""}">
+      <input type="checkbox" id="chk-${i}" ${done?"checked":""}>
+      <label for="chk-${i}">${text}</label>
+    </div>`;
+  }).join("");
+
+  $$("#checklist input").forEach((el,i)=>{
+    el.addEventListener("change",()=>{
+      localStorage.setItem("ra1v2-check-"+i,el.checked?"1":"0");
+      el.closest(".check").classList.toggle("done",el.checked);
+      updateProgress();
+      showToast("Checklist actualizado");
+    });
+  });
+  updateProgress();
+}
+renderChecks();
+
+$$("[data-target]").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const el=document.getElementById(btn.dataset.target);
+    if(el)el.scrollIntoView({behavior:"smooth"});
+    $$("#navlinks button").forEach(x=>x.classList.remove("active"));
+    btn.classList.add("active");
+  });
+});
+
+document.addEventListener("scroll",()=>{
+  const ids=["inicio","aplicacion","lenguajes","arquitectura","datos","extras","entrega"];
+  let current="inicio";
+  for(const id of ids){
+    const el=document.getElementById(id);
+    if(el && window.scrollY>=el.offsetTop-120) current=id;
+  }
+  $$("#navlinks button").forEach(btn=>btn.classList.toggle("active",btn.dataset.target===current));
+});
+
+$("#print").addEventListener("click",()=>window.print());
+$("#reset").addEventListener("click",()=>{
+  checks.forEach((_,i)=>localStorage.removeItem("ra1v2-check-"+i));
+  renderChecks();
+  showToast("Checklist reiniciado");
+});
+$("#backtop").addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));
+
+$("#appTabs").addEventListener("click",e=>{
+  const btn=e.target.closest("button[data-app]");
+  if(!btn)return;
+  $$("#appTabs button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  $("#appAula").style.display=btn.dataset.app==="aula"?"grid":"none";
+  $("#appMatri").style.display=btn.dataset.app==="matri"?"grid":"none";
+});
+$("#appMatri").style.display="grid";
+$("#appAula").style.display="none";
+
+const languages=["Python","JavaScript / Node.js","R","C++","PHP","Java"];
+const criteria=[
+  ["Facilidad de aprendizaje",1.0],
+  ["Legibilidad",1.0],
+  ["Mantenimiento",1.0],
+  ["Integración web / APIs / BD",1.0],
+  ["Trabajo con datos",1.0],
+  ["Análisis estadístico",0.8],
+  ["Bibliotecas y modelos IA",1.2],
+  ["Modelos preentrenados",1.0],
+  ["Rendimiento / despliegue",1.0],
+  ["Interfaz web",0.8]
+];
+const exampleScores=[
+  [9,9,7,5,8,8],
+  [9,8,8,6,8,8],
+  [9,9,8,7,7,8],
+  [9,8,8,8,7,9],
+  [9,8,7,7,8,8],
+  [9,8,8,9,6,9],
+  [10,9,8,8,4,8],
+  [10,9,8,8,4,8],
+  [8,9,7,10,7,9],
+  [7,10,5,6,10,8]
+];
+
+function renderMatrix(){
+  const head=`<thead><tr><th>Criterio</th><th>Peso</th>${languages.map(x=>`<th>${x}</th>`).join("")}</tr></thead>`;
+  const body=criteria.map((c,i)=>{
+    return `<tr>
+      <td><strong>${c[0]}</strong></td>
+      <td><input data-weight="${i}" type="number" min="0" max="5" step="0.1" value="${c[1]}"></td>
+      ${languages.map((l,j)=>`<td><input data-score="${i}-${j}" type="number" min="1" max="10" value="${exampleScores[i][j]}"></td>`).join("")}
+    </tr>`;
+  }).join("");
+  const foot=`<tfoot><tr><td><strong>Puntuación ponderada</strong></td><td>—</td>${languages.map((l,j)=>`<td id="total-${j}">0</td>`).join("")}</tr></tfoot>`;
+  $("#matrix").innerHTML=head+"<tbody>"+body+"</tbody>"+foot;
+  updateMatrix();
+}
+function updateMatrix(){
+  const totals=languages.map(()=>0);
+  criteria.forEach((_,i)=>{
+    const w=Number(document.querySelector(`[data-weight="${i}"]`)?.value||0);
+    languages.forEach((_,j)=>{
+      const s=Number(document.querySelector(`[data-score="${i}-${j}"]`)?.value||0);
+      totals[j]+=w*s;
+    });
+  });
+  totals.forEach((v,j)=>$("#total-"+j).textContent=v.toFixed(1));
+}
+renderMatrix();
+$("#matrix").addEventListener("input",updateMatrix);
+
+let trendData=[
+  ["Python",100,92],["JavaScript",74,58],["R",22,14],["C++",36,27],["PHP",31,20],["Java",44,32]
+];
+
+function parseTrendCSV(text){
+  const rows=text.trim().split(/\r?\n/).filter(Boolean).map(r=>r.split(",").map(x=>x.trim()));
+  if(rows.length<2)return null;
+  const headers=rows[0].map(x=>x.toLowerCase());
+  const iL=headers.indexOf("lenguaje"), iW=headers.indexOf("web"), iY=headers.indexOf("youtube");
+  if(iL<0||iW<0||iY<0)return null;
+  return rows.slice(1).map(r=>[r[iL],Number(r[iW])||0,Number(r[iY])||0]);
+}
+
+function drawTrend(){
+  const canvas=$("#trendChart");
+  const box=canvas.parentElement.getBoundingClientRect();
+  const dpr=window.devicePixelRatio||1;
+  const W=Math.max(420,box.width-4), H=Math.max(220,box.height-4);
+  canvas.width=W*dpr;canvas.height=H*dpr;
+  const ctx=canvas.getContext("2d");
+  ctx.scale(dpr,dpr);
+  ctx.clearRect(0,0,W,H);
+
+  const pad={l:40,r:16,t:20,b:48};
+  const iw=W-pad.l-pad.r, ih=H-pad.t-pad.b;
+
+  ctx.strokeStyle="#e1e9eb";ctx.lineWidth=1;ctx.fillStyle="#7b8d95";ctx.font="10px system-ui";
+  for(let y=0;y<=100;y+=20){
+    const py=pad.t+ih-(y/100)*ih;
+    ctx.beginPath();ctx.moveTo(pad.l,py);ctx.lineTo(W-pad.r,py);ctx.stroke();
+    ctx.fillText(String(y),10,py+3);
+  }
+
+  const n=Math.max(1,trendData.length-1);
+  const x=i=>pad.l+(i/n)*iw;
+  const plot=(idx,color,offset)=>{
+    ctx.strokeStyle=color;ctx.lineWidth=2.6;ctx.beginPath();
+    trendData.forEach((r,i)=>{
+      const val=Math.max(0,Math.min(100,Number(r[idx])));
+      const py=pad.t+ih-(val/100)*ih+offset;
+      i?ctx.lineTo(x(i),py):ctx.moveTo(x(i),py);
+    });
+    ctx.stroke();
+    trendData.forEach((r,i)=>{
+      const val=Math.max(0,Math.min(100,Number(r[idx])));
+      const py=pad.t+ih-(val/100)*ih+offset;
+      ctx.fillStyle=color;ctx.beginPath();ctx.arc(x(i),py,4,0,Math.PI*2);ctx.fill();
+    });
+  };
+
+  plot(1,getComputedStyle(document.documentElement).getPropertyValue("--green").trim(),0);
+  plot(2,getComputedStyle(document.documentElement).getPropertyValue("--blue").trim(),3);
+
+  ctx.fillStyle="#42606a";ctx.font="10px system-ui";ctx.textAlign="center";
+  trendData.forEach((r,i)=>ctx.fillText(r[0],x(i),H-16));
+  ctx.textAlign="left";
+}
+drawTrend();
+window.addEventListener("resize",drawTrend);
+
+$("#csvFile").addEventListener("change",async e=>{
+  const file=e.target.files?.[0];
+  if(!file)return;
+  const text=await file.text();
+  const parsed=parseTrendCSV(text);
+  if(!parsed){showToast("CSV no válido");return}
+  trendData=parsed;
+  $("#csvData").textContent=text.slice(0,1200);
+  drawTrend();
+  showToast("CSV cargado en el gráfico");
+});
+
+$("#mobileMenu").addEventListener("click",()=>{
+  const nav=$("#navlinks");
+  const visible=nav.style.display==="flex";
+  nav.style.display=visible?"none":"flex";
+  if(!visible){
+    nav.style.position="absolute";
+    nav.style.top="67px";
+    nav.style.left="12px";
+    nav.style.right="12px";
+    nav.style.padding="10px";
+    nav.style.background="rgba(255,255,255,.98)";
+    nav.style.border="1px solid var(--line)";
+    nav.style.borderRadius="14px";
+    nav.style.boxShadow="var(--shadow)";
+  }
+});
+</script>
+</body>
 </html>
