@@ -204,13 +204,9 @@ El proyecto incluye dos diagramas de flujo:
 
 ### Diagrama PRE-IA
 
-`Diagrama_flujos_PRE_IA_PASO 3.png`
-
 Representa el funcionamiento antes de integrar el modelo de Inteligencia Artificial, cuando la matrícula debía ser leída manualmente por una persona.
 
 ### Diagrama POST-IA
-
-`Diagrama_flujos_POST_IA_PASO 3.png`
 
 Representa el funcionamiento con la IA integrada, incluyendo:
 
