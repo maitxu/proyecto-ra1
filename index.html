@@ -1,3 +1,564 @@
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matriculator | Aimar, Maitane e Ignacio (AMI)</title>
+<meta name="description" content="Matriculator" />
+ <link rel="stylesheet" href="assets/html/style.css">
+</head>
+<body>
+<div class="topline"></div>
+
+<header>
+  <div class="container navbar">
+    <div class="brand">
+      <div class="brandmark">AMI</div>
+      <div class="brandtext">
+        <strong>Matriculator</strong>
+      </div>
+    </div>
+    <div class="navlinks" id="navlinks">
+      <button class="active" data-target="inicio">Inicio</button>
+      <button data-target="aplicacion">Aplicación</button>
+      <button data-target="lenguajes">Lenguajes</button>
+      <button data-target="arquitectura">Arquitectura</button>
+      <button data-target="datos">Datos</button>
+      <button data-target="extras">Extras</button>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="container">
+    <section class="hero" id="inicio">
+      <div class="hero-grid">
+        <div class="hero-main">
+          <div class="kicker">Programación de Inteligencia Artificial (PIA)</div>
+          <h1>Matriculator</h1>
+          <p>
+            Estudio de <strong>lenguajes, arquitectura, marcado y formatos de datos</strong>
+            para una aplicación hipotética. Este entregable está preparado como una versión
+            completa de demostración y todos los campos marcados son editables.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="aplicacion">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>01</i> Aplicación hipotética</div>
+          <h2>Matriculator</h2>
+          <p>Aplicación hipotética para detectar matrículas en imágenes de prueba de un aparcamiento.</p>
+        </div>
+        <div class="tabbar" id="appTabs">
+          <button class="active" data-app="matri">Matriculator</button>
+          <button data-app="aula">AulaSoporte · alternativa</button>
+        </div>
+      </div>
+
+      <div id="appMatri" class="grid grid-2">
+        <div class="card accent-orange">
+          <h3>Problema y objetivo</h3>
+          <p class="lead">
+            Una empresa de aparcamientos quiere estudiar una aplicación capaz de
+            <strong>detectar matrículas en imágenes de prueba</strong>. La propuesta
+            permite analizar qué lenguajes y tecnologías serían adecuados para una solución
+            de visión artificial sin necesidad de implementar ni entrenar el modelo en este trabajo.
+          </p>
+          <div class="feature-list">
+            <div class="feature"><div class="icon">📷</div><div><strong>Entrada</strong><span>Imágenes de prueba de vehículos, preferiblemente sintéticas, anónimas o abiertas.</span></div></div>
+            <div class="feature"><div class="icon">🧠</div><div><strong>Procesamiento</strong><span>Validación de imagen → preprocesado → detección de la matrícula → posible OCR → validación.</span></div></div>
+            <div class="feature"><div class="icon">🔎</div><div><strong>Salida</strong><span>Región detectada, texto de matrícula cuando proceda y nivel de confianza.</span></div></div>
+            <div class="feature"><div class="icon">👤</div><div><strong>Revisión humana</strong><span>Un resultado de baja confianza debe quedar sujeto a comprobación antes de utilizarse.</span></div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Tabla resumen del caso</h3>
+          <div class="scroll" style="margin-top:10px">
+            <table>
+              <thead><tr><th>Elemento</th><th>Propuesta</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Entradas</strong></td><td>Imágenes de prueba de vehículos.</td></tr>
+                <tr><td><strong>Procesamiento</strong></td><td>Validación → redimensionado/preprocesado → detección → OCR opcional → control de confianza.</td></tr>
+                <tr><td><strong>Salidas</strong></td><td>Localización de matrícula, texto reconocido y confianza del resultado.</td></tr>
+                <tr><td><strong>Datos necesarios</strong></td><td>Imágenes sintéticas, anónimas o abiertas y, si el enfoque lo requiere, anotaciones de las matrículas.</td></tr>
+                <tr><td><strong>Límite</strong></td><td>La aplicación propone un resultado; los casos dudosos deben pasar por <strong>revisión humana</strong>.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="appAula" class="grid grid-2" style="display:none">
+        <div class="card">
+          <h3>AulaSoporte · opción alternativa</h3>
+          <p class="lead">
+            Un centro recibe incidencias de acceso, equipos, plataforma o red. Una web recoge
+            la consulta y, en una fase futura, un modelo de IA propone categoría y prioridad.
+          </p>
+          <div class="feature-list">
+            <div class="feature"><div class="icon">📝</div><div><strong>Entrada</strong><span>Texto de la incidencia y contexto mínimo.</span></div></div>
+            <div class="feature"><div class="icon">⚙️</div><div><strong>Procesamiento</strong><span>Validación, limpieza, transformación y predicción.</span></div></div>
+            <div class="feature"><div class="icon">🎯</div><div><strong>Salida</strong><span>Categoría y prioridad propuestas.</span></div></div>
+            <div class="feature"><div class="icon">👤</div><div><strong>Decisión humana</strong><span>Revisión de resultados relevantes.</span></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Tabla resumen · alternativa</h3>
+          <div class="scroll" style="margin-top:10px">
+            <table><thead><tr><th>Elemento</th><th>Propuesta</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Entradas</strong></td><td>Consulta escrita.</td></tr>
+              <tr><td><strong>Procesamiento</strong></td><td>Validación → limpieza → inferencia.</td></tr>
+              <tr><td><strong>Salidas</strong></td><td>Categoría, prioridad y recomendación.</td></tr>
+              <tr><td><strong>Datos necesarios</strong></td><td>Incidencias sintéticas/anónimas y etiquetas si son necesarias.</td></tr>
+            </tbody></table>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Especificación funcional rápida</h3>
+        <div class="definition-grid" style="margin-top:10px">
+          <div class="definition"><div class="head"><strong>Usuario</strong><span class="tag orange">IMAGEN</span></div><p>Introduce una imagen de prueba desde la interfaz.</p></div>
+          <div class="definition"><div class="head"><strong>API</strong><span class="tag blue">INTEGRACIÓN</span></div><p>Recibe la imagen o referencia y gestiona la comunicación con el componente de IA.</p></div>
+          <div class="definition"><div class="head"><strong>Modelo IA</strong><span class="tag green">VISIÓN</span></div><p>Localiza la matrícula y puede extraer el texto mediante OCR.</p></div>
+          <div class="definition"><div class="head"><strong>Revisión</strong><span class="tag pink">HUMANA</span></div><p>Comprueba resultados ambiguos, especialmente cuando la confianza es baja.</p></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Datos de prueba encontrados en el proyecto</h3>
+        <p>El ZIP incluye un conjunto local de imágenes para pruebas de Matriculator y las exportaciones de Google Trends utilizadas para la comparación.</p>
+        <div class="grid grid-3" style="margin-top:10px">
+          <div class="definition"><div class="head"><strong>Imágenes</strong><span class="tag orange">50</span></div><p><code>assets/img_mtr/</code> contiene <strong>50 imágenes</strong>, desde <code>coche_1.png</code> hasta <code>coche_50.png</code>. Las 50 tienen resolución <strong>1448 × 1086</strong> y modo RGB.</p></div>
+          <div class="definition"><div class="head"><strong>Google Trends · Web</strong><span class="tag green">273 filas</span></div><p><code>data/google_trends_web.csv</code>: datos mensuales de <strong>2004-01 a 2026-09</strong> para C++, PHP, R, JavaScript, Python y Java.</p></div>
+          <div class="definition"><div class="head"><strong>Google Trends · YouTube</strong><span class="tag blue">225 filas</span></div><p><code>data/google_trends_youtube.csv</code>: datos mensuales de <strong>2008-01 a 2026-09</strong> para los mismos seis lenguajes.</p></div>
+        </div>
+        <div class="small-note" style="margin-top:10px">Los datos de Trends son índices de interés relativo. En el proyecto se conservan los CSV originales y el gráfico del HTML usa el último dato disponible: septiembre de 2026.</div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Ejemplos de imágenes del conjunto de prueba</h3>
+        <div class="grid grid-4" style="margin-top:10px;grid-template-columns:repeat(4,minmax(0,1fr))">
+          <figure style="margin:0"><img src="assets/img_mtr/coche_1.png" alt="Imagen de prueba coche 1" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--line)"><figcaption class="small-note">coche_1.png</figcaption></figure>
+          <figure style="margin:0"><img src="assets/img_mtr/coche_2.png" alt="Imagen de prueba coche 2" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--line)"><figcaption class="small-note">coche_2.png</figcaption></figure>
+          <figure style="margin:0"><img src="assets/img_mtr/coche_25.png" alt="Imagen de prueba coche 25" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--line)"><figcaption class="small-note">coche_25.png</figcaption></figure>
+          <figure style="margin:0"><img src="assets/img_mtr/coche_50.png" alt="Imagen de prueba coche 50" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--line)"><figcaption class="small-note">coche_50.png</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lenguajes">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>02</i> Comparación de lenguajes</div>
+          <h2>Del caso a una decisión técnica</h2>
+          <p>Se comparan los seis lenguajes indicados en el enunciado y se separa aplicación general de IA.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-3">
+        <div class="card accent-green"><h3>Python</h3><p>Muy buen ecosistema para datos, ML/IA, prototipado y automatización. En este ejemplo es el lenguaje principal de IA.</p></div>
+        <div class="card accent-blue"><h3>JavaScript / Node.js</h3><p>Muy buena integración con interfaz, APIs y servicios web; candidato fuerte para frontend/backend.</p></div>
+        <div class="card accent-yellow"><h3>R</h3><p>Especialmente orientado a análisis estadístico, visualización y exploración de datos.</p></div>
+        <div class="card accent-orange"><h3>C++</h3><p>Muy alto rendimiento y control, con mayor complejidad de desarrollo y mantenimiento.</p></div>
+        <div class="card accent-pink"><h3>PHP</h3><p>Muy útil en backend web, pero menos habitual como núcleo del componente moderno de IA.</p></div>
+        <div class="card" style="border-top:4px solid var(--ink)"><h3>Java</h3><p>Buena integración empresarial, robustez y rendimiento, con ecosistema de IA disponible.</p></div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Google Trends · datos del proyecto</h3>
+        <p>El ZIP ya incluye las exportaciones reales utilizadas en el proyecto. El gráfico muestra el <strong>último dato disponible (septiembre de 2026)</strong> de los dos CSV, manteniendo separados los índices de búsqueda web y YouTube.</p>
+        <div class="chart-wrap" style="margin-top:13px">
+          <div class="chart-card">
+            <div class="chart-box"><canvas id="trendChart"></canvas></div>
+            <div class="legend">
+              <span><i class="dot" style="background:var(--green)"></i>Web</span>
+              <span><i class="dot" style="background:var(--blue)"></i>YouTube</span>
+            </div>
+            <div class="small-note">Índice de interés relativo · último dato disponible: 2026-09.</div>
+          </div>
+          <div class="upload">
+            <strong style="font-size:12px">Cargar vuestro trends.csv</strong>
+            <p style="margin-top:5px">Cabecera recomendada: <code>lenguaje,web,youtube</code></p>
+            <input type="file" id="csvFile" accept=".csv,text/csv">
+            <pre id="csvData" class="code" style="max-height:185px;margin-top:10px">lenguaje,web,youtube
+Python,20,63
+JavaScript,10,22
+R,3,19
+C++,4,11
+PHP,3,4
+Java,10,65</pre>
+          </div>
+        </div>
+        <div class="scroll" style="margin-top:12px">
+          <table>
+            <thead><tr><th>Lenguaje</th><th>Web · sep. 2026</th><th>YouTube · sep. 2026</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Python</strong></td><td>20</td><td>63</td></tr>
+              <tr><td><strong>JavaScript</strong></td><td>10</td><td>22</td></tr>
+              <tr><td><strong>R</strong></td><td>3</td><td>19</td></tr>
+              <tr><td><strong>C++</strong></td><td>4</td><td>11</td></tr>
+              <tr><td><strong>PHP</strong></td><td>3</td><td>4</td></tr>
+              <tr><td><strong>Java</strong></td><td>10</td><td>65</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small-note" style="margin-top:8px">Lectura del último dato: en búsqueda web, Python presenta 20 y JavaScript/Java 10; en YouTube, Java alcanza 65 y Python 63. Estas cifras describen ese punto temporal y no sustituyen el análisis del periodo completo.</p>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Tabla comparativa</h3>
+        <div class="scroll" style="margin-top:10px">
+          <table>
+            <thead>
+              <tr><th>Lenguaje</th><th>Aprendizaje</th><th>Legibilidad</th><th>Mantenimiento</th><th>Web / API / BD</th><th>Datos</th><th>Estadística</th><th>IA / ML</th><th>Rendimiento</th><th>Interfaz web</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Python</strong></td><td>Muy alta</td><td>Muy alta</td><td>Muy alta</td><td>Alta</td><td>Muy alta</td><td>Muy alta</td><td><span class="tag green">Muy alta</span></td><td>Alta</td><td>Media/Alta</td></tr>
+              <tr><td><strong>JavaScript / Node.js</strong></td><td>Alta</td><td>Alta</td><td>Alta</td><td><span class="tag blue">Muy alta</span></td><td>Alta</td><td>Media</td><td>Alta</td><td>Alta</td><td><span class="tag blue">Muy alta</span></td></tr>
+              <tr><td><strong>R</strong></td><td>Media</td><td>Alta</td><td>Alta</td><td>Media</td><td>Alta</td><td><span class="tag yellow">Muy alta</span></td><td>Alta</td><td>Media</td><td>Baja</td></tr>
+              <tr><td><strong>C++</strong></td><td>Baja</td><td>Media</td><td>Alta</td><td>Alta</td><td>Alta</td><td>Media</td><td>Alta</td><td><span class="tag orange">Muy alta</span></td><td>Media</td></tr>
+              <tr><td><strong>PHP</strong></td><td>Muy alta</td><td>Alta</td><td>Alta</td><td><span class="tag orange">Muy alta</span></td><td>Media</td><td>Baja</td><td>Media</td><td>Media</td><td><span class="tag orange">Muy alta</span></td></tr>
+              <tr><td><strong>Java</strong></td><td>Alta</td><td>Alta</td><td><span class="tag blue">Muy alta</span></td><td><span class="tag blue">Muy alta</span></td><td>Alta</td><td>Media</td><td>Alta</td><td><span class="tag blue">Muy alta</span></td><td>Alta</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Matriz de decisión editable</h3>
+        <p>Las notas son de ejemplo. Podéis cambiarlas de 1 a 10 y el total se recalculará automáticamente.</p>
+        <div class="scroll" style="margin-top:10px">
+          <table class="matrix" id="matrix"></table>
+        </div>
+        <div class="decisions">
+          <div class="decision green">
+            <span>Lenguaje principal de la aplicación</span>
+            <strong contenteditable="true" class="editable">JavaScript / Node.js</strong>
+            <p contenteditable="true" class="editable">Se propone para la capa web y de integración por su conexión natural con interfaz, APIs, gestión de ficheros y comunicación con el servicio de IA.</p>
+          </div>
+          <div class="decision blue">
+            <span>Lenguaje principal para IA</span>
+            <strong contenteditable="true" class="editable">Python</strong>
+            <p contenteditable="true" class="editable">Se propone para el componente de IA por su ecosistema para visión artificial, tratamiento de imágenes, aprendizaje automático y disponibilidad de bibliotecas y modelos.</p>
+          </div>
+        </div>
+        <div class="card" style="margin-top:12px;background:#fffaf6">
+          <h3>Descarte razonado</h3>
+          <p contenteditable="true" class="editable">
+            R se reserva principalmente para análisis estadístico y exploración; PHP destaca especialmente en backend web; Java aporta robustez empresarial; y C++ ofrece alto rendimiento, aunque con mayor complejidad de desarrollo. Para este caso de visión artificial, el ejemplo final separa Node.js para la aplicación web y Python para el componente de IA.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="arquitectura">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>03</i> Arquitectura</div>
+          <h2>Cómo funcionaría Matriculator</h2>
+          <p>Flujo general, preparación de datos y proceso de inferencia para detección de matrículas.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Flujo general · 8 etapas</h3>
+        <div class="flow" style="margin-top:11px">
+          <div class="flow-step"><small>01</small><strong>Inicio</strong><span>Se abre la aplicación.</span></div>
+          <div class="flow-step"><small>02</small><strong>Imagen</strong><span>Se aporta una imagen.</span></div>
+          <div class="flow-step"><small>03</small><strong>Validación</strong><span>Formato y calidad.</span></div>
+          <div class="flow-step"><small>04</small><strong>Preprocesado</strong><span>Escala, recorte y normalización.</span></div>
+          <div class="flow-step"><small>05</small><strong>Detección</strong><span>Localiza la matrícula.</span></div>
+          <div class="flow-step"><small>06</small><strong>OCR</strong><span>Extrae caracteres.</span></div>
+          <div class="flow-step"><small>07</small><strong>Revisión</strong><span>Control de confianza.</span></div>
+          <div class="flow-step"><small>08</small><strong>Salida</strong><span>Resultado mostrado.</span></div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:15px">
+        <div class="card accent-orange">
+          <h3>Antes de entrenar / integrar el modelo</h3>
+          <div class="timeline" style="margin-top:11px">
+            <div class="timeline-row"><div class="timeline-num">1</div><div class="timeline-box"><strong>Recopilar imágenes</strong><span>Crear o localizar imágenes sintéticas, anónimas o abiertas.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">2</div><div class="timeline-box"><strong>Preparar imágenes</strong><span>Redimensionar, normalizar y comprobar calidad.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">3</div><div class="timeline-box"><strong>Marcar matrículas</strong><span>Crear bounding boxes/anotaciones si el método las necesita.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">4</div><div class="timeline-box"><strong>Separar conjuntos</strong><span>Entrenamiento, validación y prueba.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">5</div><div class="timeline-box"><strong>Seleccionar modelo</strong><span>Evaluar un detector y, si procede, un componente OCR.</span></div></div>
+          </div>
+          <div style="margin-top:12px">
+            <span class="tag orange">arrays</span> <span class="tag orange">funciones</span> <span class="tag orange">condiciones</span> <span class="tag orange">bucles</span> <span class="tag purple">datasets</span> <span class="tag purple">visión artificial</span>
+          </div>
+        </div>
+
+        <div class="card accent-blue">
+          <h3>Después de entrenar / integrar</h3>
+          <div class="timeline" style="margin-top:11px">
+            <div class="timeline-row"><div class="timeline-num">1</div><div class="timeline-box"><strong>Recibir imagen</strong><span>La interfaz envía el fichero al backend.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">2</div><div class="timeline-box"><strong>Validar</strong><span>Se comprueba extensión, tamaño y legibilidad.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">3</div><div class="timeline-box"><strong>Preprocesar</strong><span>Se transforma al formato esperado por el modelo.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">4</div><div class="timeline-box"><strong>Detectar</strong><span>El modelo identifica la región de la matrícula.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">5</div><div class="timeline-box"><strong>OCR</strong><span>Se intenta reconocer el texto de la matrícula.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">6</div><div class="timeline-box"><strong>Revisión humana</strong><span>Se revisan detecciones con baja confianza o resultado ambiguo.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">7</div><div class="timeline-box"><strong>Consulta de permiso</strong><span>El proyecto comprueba si el vehículo es conocido y si tiene permiso de acceso.</span></div></div>
+            <div class="timeline-row"><div class="timeline-num">8</div><div class="timeline-box"><strong>Barrera y registro</strong><span>Si procede, se abre la barrera, se registra la entrada y después puede registrarse la salida.</span></div></div>
+          </div>
+          <div style="margin-top:12px">
+            <span class="tag blue">API</span> <span class="tag blue">JSON</span> <span class="tag blue">manejo de errores</span> <span class="tag blue">logs</span> <span class="tag blue">backend</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:15px">
+        <h3>Pseudocódigo · versión del notebook del proyecto</h3>
+        <p>El ZIP incluye <code>pseudocodigo.ipynb</code>. El flujo real del notebook concreta la propuesta con cámara, lectura de matrícula, umbral de confianza del <strong>80 %</strong>, consulta del vehículo y decisión de acceso.</p>
+        <pre class="code" contenteditable="true">def obtener_matricula():
+    foto = hacer_foto_con_camara()
+
+    if foto is None:
+        return foto, None, "La cámara no ha enviado ninguna foto"
+
+    matricula, confianza = leer_matricula_con_ia(foto)
+
+    if matricula is None or confianza &lt; 0.80:
+        return foto, None, "No se distingue bien la matrícula"
+
+    return foto, matricula, None
+
+def decidir_acceso(matricula, problema):
+    if problema is not None:
+        return pedir_revision_en_garita(problema)
+
+    vehiculo = buscar_vehiculo(matricula)
+
+    if vehiculo is None:
+        return pedir_revision_en_garita("No conocemos este vehículo")
+
+    if vehiculo.datos_incompletos:
+        return pedir_revision_en_garita("Hay datos que revisar")
+
+    if vehiculo.tipo == "docente" or vehiculo.tiene_permiso:
+        return "Autorizado automáticamente"
+
+    return "Denegado: no tiene permiso"
+
+def procesar_acceso():
+    foto, matricula, problema = obtener_matricula()
+    resultado = decidir_acceso(matricula, problema)
+
+    if resultado in ["Autorizado automáticamente", "Autorizado manualmente"]:
+        abrir_barrera()
+        fecha_entrada = obtener_fecha_y_hora()
+    else:
+        mantener_barrera_cerrada()
+        fecha_entrada = None
+
+    guardar_intento(foto, matricula, resultado, fecha_entrada)
+    mostrar_resultado(resultado)
+    return resultado
+
+def registrar_salida(matricula):
+    entrada = buscar_entrada_sin_salida(matricula)
+    if entrada is None:
+        return "No encontramos una entrada pendiente de salida"
+    entrada.fecha_salida = obtener_fecha_y_hora()
+    guardar_cambios(entrada)
+    return "Salida registrada"</pre>
+        <div class="small-note" style="margin-top:9px">Fuente interna del proyecto: <code>pseudocodigo.ipynb</code>. El notebook indica que cámara, IA, base de datos, garita y barrera se representan mediante funciones que se desarrollarían más adelante.</div>
+      </div>
+    </section>
+
+    <section class="section" id="datos">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>04</i> Marcado y formatos</div>
+          <h2>Cómo se representan y comparten los datos</h2>
+          <p>Caracterización de HTML y XML y uso de JSON, Markdown y CSV en el proyecto.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-5" style="grid-template-columns:repeat(5,minmax(0,1fr))">
+        <div class="card format"><div class="format-icon fhtml">HTML</div><h3>HTML</h3><p>Estructura la interfaz: formularios, botones, tablas, títulos y contenido de la web.</p><div class="code" style="margin-top:auto">&lt;form&gt;
+  &lt;input name="consulta"&gt;
+&lt;/form&gt;</div></div>
+        <div class="card format"><div class="format-icon fxml">XML</div><h3>XML</h3><p>Representa información jerárquica mediante etiquetas. Puede aparecer en intercambios estructurados.</p><div class="code" style="margin-top:auto">&lt;incidencia&gt;
+  &lt;prioridad&gt;alta&lt;/prioridad&gt;
+&lt;/incidencia&gt;</div></div>
+        <div class="card format"><div class="format-icon fjson">JSON</div><h3>JSON</h3><p>Formato ligero para enviar datos entre la interfaz, API y servicio de IA.</p><div class="code" style="margin-top:auto">{
+  "consulta": "No puedo entrar",
+  "prioridad": "alta"
+}</div></div>
+        <div class="card format"><div class="format-icon fmd">MD</div><h3>Markdown</h3><p>Se utiliza en <code>README.md</code> para documentación, organización, fuentes y evidencias.</p><div class="code" style="margin-top:auto"># RA1
+## Fuentes
+- Python
+- Node.js</div></div>
+        <div class="card format"><div class="format-icon fcsv">CSV</div><h3>CSV</h3><p>Formato tabular usado para almacenar la exportación de Google Trends y datos sencillos.</p><div class="code" style="margin-top:auto">lenguaje,web,youtube
+Python,100,92</div></div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:15px">
+        <div class="card">
+          <h3>Python · librerías de lectura</h3>
+          <div class="scroll" style="margin-top:9px">
+            <table>
+              <thead><tr><th>Formato</th><th>Ejemplo de librería / módulo</th><th>Uso</th></tr></thead>
+              <tbody>
+                <tr><td>HTML</td><td><code>BeautifulSoup</code></td><td>Parsear HTML.</td></tr>
+                <tr><td>CSV</td><td><code>csv</code> / <code>pandas</code></td><td>Leer tablas y exportaciones.</td></tr>
+                <tr><td>JSON</td><td><code>json</code> / <code>pandas</code></td><td>Leer e intercambiar estructuras.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Equivalentes en R</h3>
+          <div class="scroll" style="margin-top:9px">
+            <table>
+              <thead><tr><th>Necesidad</th><th>Opción</th><th>Ejemplo</th></tr></thead>
+              <tbody>
+                <tr><td>CSV</td><td><code>readr</code></td><td><code>read_csv()</code></td></tr>
+                <tr><td>JSON</td><td><code>jsonlite</code></td><td><code>fromJSON()</code></td></tr>
+                <tr><td>HTML</td><td><code>rvest</code></td><td><code>read_html()</code></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:15px">
+        <div class="card accent-green">
+          <h3>HTML sintético para parsear</h3>
+          <pre class="code">&lt;section id="incidencia"&gt;
+  &lt;h2&gt;Incidencia #1042&lt;/h2&gt;
+  &lt;p class="categoria"&gt;Acceso&lt;/p&gt;
+  &lt;p class="prioridad"&gt;Alta&lt;/p&gt;
+&lt;/section&gt;</pre>
+        </div>
+        <div class="card accent-blue">
+          <h3>JSON sintético de entrada</h3>
+          <pre class="code">{
+  "id": 1042,
+  "imagen": "vehiculo_1042.jpg",
+  "tipo": "jpg",
+  "origen": "sintetico",
+  "matricula": null
+}</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="extras">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>05</i> Preguntas adicionales</div>
+          <h2>Conclusiones del equipo</h2>
+          <p>Respuestas preparadas para trasladar al README.md.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card accent-pink">
+          <h3>¿IA débil o IA fuerte?</h3>
+          <p class="lead" contenteditable="true">
+            La propuesta se aproxima a una <strong>IA débil o especializada</strong>, porque el sistema está diseñado
+            para una tarea concreta: detectar matrículas en imágenes de prueba y, opcionalmente, reconocer su texto.
+            No pretende disponer de capacidades generales equivalentes a una inteligencia humana en múltiples dominios.
+          </p>
+        </div>
+        <div class="card accent-yellow">
+          <h3>¿Modelo preentrenado o desde cero?</h3>
+          <p class="lead" contenteditable="true">
+            El planteamiento de ejemplo parte de un <strong>modelo preentrenado o una solución existente</strong>
+            y contempla adaptación con datos del caso. Esto reduce tiempo y coste frente a entrenar un modelo
+            completamente desde cero, especialmente en un proyecto académico sin implementación real.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="entrega">
+      <div class="section-head">
+        <div>
+          <div class="section-number"><i>06</i> Organización y entrega</div>
+          <h2>Checklist final</h2>
+          <p>La página refleja los bloques exigidos para la entrega y permite marcar el progreso.</p>
+        </div>
+      </div>
+
+      <div class="grid grid-2">
+        <div class="card">
+          <div class="overview-progress"><span id="checkLabel">0 de 16 tareas</span><strong id="checkPct">0%</strong></div>
+          <div class="progress-track"><div class="progress-fill" id="checkBar"></div></div>
+          <div class="checklist" id="checklist" style="margin-top:13px"></div>
+        </div>
+
+        <div class="card">
+          <h3>Reparto del grupo</h3>
+          <div class="people" style="margin-top:12px">
+            <div class="person"><div class="avatar a1">1</div><strong contenteditable="true" class="editable">Integrante 1</strong><span contenteditable="true" class="editable">Aplicación + README</span></div>
+            <div class="person"><div class="avatar a2">2</div><strong contenteditable="true" class="editable">Integrante 2</strong><span contenteditable="true" class="editable">Lenguajes + Trends</span></div>
+            <div class="person"><div class="avatar a3">3</div><strong contenteditable="true" class="editable">Integrante 3</strong><span contenteditable="true" class="editable">Diagramas + pseudocódigo</span></div>
+          </div>
+          <div class="card" style="margin-top:12px;background:#fbfcfc">
+            <h3>Temporalización</h3>
+            <div class="timeline" style="margin-top:10px">
+              <div class="timeline-row"><div class="timeline-num">1</div><div class="timeline-box"><strong contenteditable="true" class="editable">23/09 · Definición de aplicación</strong><span>Problema, entradas, salidas y datos.</span></div></div>
+              <div class="timeline-row"><div class="timeline-num">2</div><div class="timeline-box"><strong contenteditable="true" class="editable">24/09 · Lenguajes + Trends</strong><span>Comparativa, CSV y matriz.</span></div></div>
+              <div class="timeline-row"><div class="timeline-num">3</div><div class="timeline-box"><strong contenteditable="true" class="editable">25/09 · Arquitectura</strong><span>Flujo y pseudocódigo.</span></div></div>
+              <div class="timeline-row"><div class="timeline-num">4</div><div class="timeline-box"><strong contenteditable="true" class="editable">26/09 · Revisión final</strong><span>README, fuentes, evidencias y publicación.</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-2" style="margin-top:15px">
+        <div class="card">
+          <h3>Fuentes · ejemplos de documentación oficial</h3>
+          <div class="source-list" style="margin-top:10px">
+            <div class="source"><div><strong>Python Documentation</strong><small>Lenguaje y biblioteca estándar</small></div><a href="https://docs.python.org/3/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>Node.js Documentation</strong><small>Runtime y desarrollo de aplicaciones</small></div><a href="https://nodejs.org/docs/latest/api/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>R Project</strong><small>Lenguaje y entorno estadístico</small></div><a href="https://www.r-project.org/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>isocpp.org</strong><small>Recursos sobre C++</small></div><a href="https://isocpp.org/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>PHP Manual</strong><small>Documentación oficial de PHP</small></div><a href="https://www.php.net/docs.php" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>Java Documentation</strong><small>Documentación oficial de Java</small></div><a href="https://docs.oracle.com/en/java/" target="_blank">Abrir ↗</a></div>
+            <div class="source"><div><strong>Google Trends</strong><small>Fuente para la exportación real del CSV</small></div><a href="https://trends.google.com/" target="_blank">Abrir ↗</a></div>
+          </div>
+          <p class="small-note">Añadid en el README la fecha de consulta y el título exacto de cada fuente. Sustituid/añadid las fuentes que finalmente utilicéis.</p>
+        </div>
+
+        <div class="card">
+          <h3>Evidencias del uso de IA generativa</h3>
+          <div class="ai-evidence" style="margin-top:10px">
+            <div class="ai-item"><div class="top"><strong>Prompt 01 · definición</strong><span class="tag badge-ai">IA</span></div><p>“Propón una estructura para una aplicación hipotética de IA que permita justificar lenguajes y arquitectura sin implementarla.”</p></div>
+            <div class="ai-item"><div class="top"><strong>Repregunta · revisión</strong><span class="tag badge-ai">CAMBIO</span></div><p>“Reduce la propuesta a una arquitectura de 8 etapas y señala dónde debe intervenir una persona.”</p></div>
+            <div class="ai-item"><div class="top"><strong>Prompt 02 · comparación</strong><span class="tag badge-ai">IA</span></div><p>“Compara Python, JavaScript/Node.js, R, C++, PHP y Java según los criterios del trabajo.”</p></div>
+            <div class="ai-item"><div class="top"><strong>Decisión humana</strong><span class="tag badge-ai">EQUIPO</span></div><p contenteditable="true" class="editable">El grupo revisó las propuestas de IA, corrigió simplificaciones y tomó las decisiones finales sobre la arquitectura y los lenguajes.</p></div>
+            <div class="ai-item"><div class="top"><strong>Reflexión final</strong><span class="tag badge-ai">README</span></div><p contenteditable="true" class="editable">La IA ayudó a generar alternativas, ordenar ideas y detectar aspectos olvidados. El equipo verificó las decisiones y adaptó la respuesta a los requisitos reales del enunciado.</p></div>
+          </div>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <footer>
+      <strong contenteditable="true" class="editable">Trabajo grupal RA1 · Matriculator · Programación de Inteligencia Artificial</strong>
+      <div style="margin-top:5px">Plantilla de entrega preparada para personalizar. Revisad datos, fuentes y CSV real antes de publicar.</div>
+    </footer>
+  </div>
+</main>
+
+<button class="backtop" id="backtop">↑</button>
+<div class="toast" id="toast">Guardado</div>
+<script src="assets/html/script.js"></script>
+<script src="assets/html/trend-data.js"></script>
+</body>
+</html>
+=======
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -577,3 +1138,4 @@ Python,100,92</div></div>
 <script src="assets/html/trend-data.js"></script>
 </body>
 </html>
+>>>>>>> ea862a3e5bceeefa991ca8538a181c78930b215e
